@@ -243,7 +243,7 @@ Smarttabs is enabled in mode hook.")
   `(progn
      (defadvice ,function (around smart-tabs activate)
        (cond
-        (smart-tabs-mode
+        ((and indent-tabs-mode smart-tabs-mode)
          (save-excursion
            (beginning-of-line)
            (while (looking-at "\t*\\( +\\)\t+")
